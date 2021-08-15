@@ -1,6 +1,6 @@
 // Function to generate list of markdown content for the installation instructions and test instructions?
 const generateInstructions = instructions => {
-  instructions.map(({ instruction }) => {
+  return instructions.map(({ instruction }) => {
     return `* ${instruction}`;
   }).join(''); 
 };
