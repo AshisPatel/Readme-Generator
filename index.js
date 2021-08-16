@@ -52,6 +52,24 @@ const getReadmeDetails = () => {
                 name: 'testInstructionsCheck',
                 message: 'Will this Readme include test instructions?',
                 default: false
+            },
+            {
+                type: 'confirm',
+                name: 'confirmLicense',
+                message: 'Would you like to add a license for this project?'
+            },
+            {
+                type: 'checkbox',
+                name: 'license',
+                message: 'Choose a license for the project:',
+                choices: ['GNU APGLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+                when: ({confirmLicense}) => {
+                    if (confirmLicense) {
+                        return true;
+                    } else {
+                        return false; 
+                    }
+                }
             }
 
         ])

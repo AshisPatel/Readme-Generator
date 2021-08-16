@@ -13,20 +13,34 @@ const generateInstructions = instructions => {
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const renderLicenseBadge = license => {
+  if (!license) {
+    return "";
+  }
+  return `![${license} badge from shield.io]("https://img.shields.io/badge/<license>-<${license}>-<brightgreen>")`; 
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+const renderLicenseLink = license => {
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+const renderLicenseSection = license => {
+  if (!license) {
+    return ""; 
+  }
+  return `
+  ##License
+
+  ${license} - Find out more about this license at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)`;
+}
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = data => {
   return `# ${data.title}
-
+  ${renderLicenseBadge(data.license)}
   ## Description
   
   ${data.description}
@@ -37,16 +51,17 @@ const generateMarkdown = data => {
   <ol>
     ${generateInstructions(data.install)}
   </ol>
+
   ## Usage
   ${data.usage}
-  ## License
-
+  ${renderLicenseSection(data.license)}
   ## Contributing
   ${data.contributions}
   ## Tests
   <ol>
     ${generateInstructions(data.test)}
   </ol>
+
   ## Questions 
 `;
 }

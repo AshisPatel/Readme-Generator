@@ -1,25 +1,28 @@
-# YES
-
+# Test License
+  ![MIT License badge from shield.io]("https://img.shields.io/badge/license-MIT-green")
   ## Description
   
-  OK
+  I'm testing a license! :D
 
   ## Table of Contents
 
   ## Installation
   <ol>
-    <li>OK</li> 
-    <li>OK</li> 
     
   </ol>
-  ## Usage
-  OK
-  ## License
 
+  ## Usage
+
+  Well ok
+  
+  ##License
+
+  MIT License - Find out more about this license at:[https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)
   ## Contributing
-  OK
+  No
   ## Tests
   <ol>
     
   </ol>
+
   ## Questions 
