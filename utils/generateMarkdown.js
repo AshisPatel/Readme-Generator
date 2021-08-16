@@ -1,7 +1,13 @@
 // Function to generate list of markdown content for the installation instructions and test instructions?
 const generateInstructions = instructions => {
+  // Check to see if this object is actually included
+  if(!instructions){
+    // Return nothing if there is nothing included
+    return ""; 
+  }
   return instructions.map(({ instruction }) => {
-    return `* ${instruction}`;
+    return `<li>${instruction}</li> 
+    `;
   }).join(''); 
 };
 
@@ -28,7 +34,9 @@ const generateMarkdown = data => {
   ## Table of Contents
 
   ## Installation
-  ${generateInstructions(data.install)}
+  <ol>
+    ${generateInstructions(data.install)}
+  </ol>
   ## Usage
   ${data.usage}
   ## License
@@ -36,7 +44,9 @@ const generateMarkdown = data => {
   ## Contributing
   ${data.contributions}
   ## Tests
-  ${generateInstructions(data.test)}
+  <ol>
+    ${generateInstructions(data.test)}
+  </ol>
   ## Questions 
 `;
 }

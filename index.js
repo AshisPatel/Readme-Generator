@@ -138,5 +138,5 @@ getReadmeDetails()
     .then(readmeData => promptInstallInstructions(readmeData))
     .then(readmeData => promptTestInstructions(readmeData))
     .then(readmeData => generateMarkdown(readmeData))
-    .then(fileContent => writeFile(fileContent));   
+    .then(readmeContent => writeFile(readmeContent));   
 
