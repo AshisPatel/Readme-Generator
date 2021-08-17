@@ -39,14 +39,16 @@ const renderLicenseSection = license => {
   ${license} - Find out more about this license at: [https://choosealicense.com/licenses/${license}/](https://choosealicense.com/licenses/${license}/)`;
 }
 
-const generateContact = (github, email) => {
+const generateContact = (github, email, contact) => {
   let contactInfo = `
   Made by: ${github}<br />
   Github Profile: https://github.com/${github}<br />`;
 
   if (email) {
-    contactInfo = contactInfo + `Email: ${email}`;
+    contactInfo = contactInfo + `Email: ${email}<br />`;
   }
+
+  contactInfo = contactInfo + `${contact}`; 
 
   return contactInfo;
 }
@@ -78,7 +80,7 @@ const generateMarkdown = data => {
   </ol>
 
   ## Questions 
-  ${generateContact(data.github, data.email)}
+  ${generateContact(data.github, data.email, data.contact)}
   
 `;
 }

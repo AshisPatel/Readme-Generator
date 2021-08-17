@@ -51,6 +51,11 @@ const getReadmeDetails = () => {
             }, 
             {
                 type: 'input',
+                name: 'contact',
+                message: 'Enter how you would like to be contacted regarding this project:'
+            },
+            {
+                type: 'input',
                 name: 'title',
                 message: 'Enter your project title (Required): ',
                 validate: titleConfirm => { 

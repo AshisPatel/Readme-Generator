@@ -1,8 +1,8 @@
-# ok
+# ReadMe Generator
   
   ## Description
   
-  ok
+  This app lets you create readmes! :o
 
   ## Table of Contents
 
@@ -12,10 +12,10 @@
   </ol>
 
   ## Usage
-  ok
+  You run it :3
   
   ## Contributing
-  ok
+  IT RUNS
   ## Tests
   <ol>
     
@@ -23,6 +23,6 @@
 
   ## Questions 
   
- Made by: ok<br />
- Github Profile: https://github.com/ok<br />Email: ok@ok.com
+  Made by: AshisPatel<br />
+  Github Profile: https://github.com/AshisPatel<br />Email: ashis.n.patel@gmail.com<br />Please send me an email inquiry at the email provided above! Or reach out to me on github!
   
