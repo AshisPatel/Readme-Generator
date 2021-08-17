@@ -1,26 +1,30 @@
-# yes
-  <image src='../utils/images/license-MIT-green.svg'>
+# YES
+  
+  <image src='https://img.shields.io/badge/license-MIT-green.svg'>
+  
   ## Description
   
-  yes
+  YES
 
   ## Table of Contents
 
   ## Installation
   <ol>
+    <li>Ok</li> 
     
   </ol>
 
   ## Usage
-  yes
+  YES
   
   ##License
 
-  MIT License - Find out more about this license at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)
+  MIT - Find out more about this license at: [https://choosealicense.com/licenses/MIT/](https://choosealicense.com/licenses/MIT/)
   ## Contributing
-  yes
+  YES 
   ## Tests
   <ol>
+    <li>Ok</li> 
     
   </ol>
 

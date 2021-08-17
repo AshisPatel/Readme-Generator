@@ -14,6 +14,43 @@ const getReadmeDetails = () => {
         .prompt([
             {
                 type: 'input',
+                name: 'github',
+                message: 'Enter your Github username (Required):',
+                validate: githubConfirm => {
+                    if(titleConfirm) {
+                        return true;
+                    } else {
+                        console.log('Please provide your Github username!');
+                        return false; 
+                    }
+                }
+            },
+            {
+                type: 'confirm', 
+                name: 'emailConfirm',
+                message: 'Would you like to include your email?'
+            }, 
+            {
+                type: 'input',
+                name: 'email',
+                message: 'Enter your email:', 
+                validate: emailInputConfirm => {
+                    if(emailInputConfirm) {
+                        return true;
+                    } else {
+                        console.log('Please provide your email!'); 
+                    }
+                }, 
+                when: emailConfirm => {
+                    if(emailConfirm) {
+                        return true;
+                    } else {
+                        return false; 
+                    }
+                }
+            }, 
+            {
+                type: 'input',
                 name: 'title',
                 message: 'Enter your project title (Required): ',
                 validate: titleConfirm => { 
@@ -24,6 +61,7 @@ const getReadmeDetails = () => {
                         console.log('Please provide a Project Title!'); 
                         return false; 
                     }
+                
                 }
             },
             {
@@ -121,12 +159,6 @@ const getReadmeDetails = () => {
     if(!readmeData.test) {
         readmeData.test = []; 
     }
-
-    // Print array of current steps, if the array is not empty
-    // if (readmeData.test.length != 0) {
-    //     console.log(`Current Instructions: ${readmeData.test}`);
-    // }
-   
 
     return inquirer.prompt([
         {

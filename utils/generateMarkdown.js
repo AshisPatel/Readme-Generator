@@ -18,7 +18,7 @@ const renderLicenseBadge = license => {
     return "";
   }
   return `
-  <image src='../utils/images/license-${license}-green.svg'>
+  <image src='https://img.shields.io/badge/license-${license}-green.svg' />
   `; 
 }
 
