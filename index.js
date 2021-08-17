@@ -17,7 +17,7 @@ const getReadmeDetails = () => {
                 name: 'github',
                 message: 'Enter your Github username (Required):',
                 validate: githubConfirm => {
-                    if(titleConfirm) {
+                    if(githubConfirm) {
                         return true;
                     } else {
                         console.log('Please provide your Github username!');
@@ -41,7 +41,7 @@ const getReadmeDetails = () => {
                         console.log('Please provide your email!'); 
                     }
                 }, 
-                when: emailConfirm => {
+                when: ({emailConfirm}) => {
                     if(emailConfirm) {
                         return true;
                     } else {
@@ -100,7 +100,7 @@ const getReadmeDetails = () => {
                 type: 'checkbox',
                 name: 'license',
                 message: 'Choose a license for the project:',
-                choices: ['agpl-3', 'gpl-3', 'lgpl-3', 'mpl-2.0', 'apache-2.0', 'MIT', 'bsl-1.0', 'unlicense'],
+                choices: ['agpl-3', 'gpl-3', 'lgpl-3', 'mpl-2.0', 'apache-2.0', 'mit', 'bsl-1.0', 'unlicense'],
                 when: ({confirmLicense}) => {
                     if (confirmLicense) {
                         return true;

@@ -1,31 +1,28 @@
-# YES
-  
-  <image src='https://img.shields.io/badge/license-MIT-green.svg'>
+# ok
   
   ## Description
   
-  YES
+  ok
 
   ## Table of Contents
 
   ## Installation
   <ol>
-    <li>Ok</li> 
     
   </ol>
 
   ## Usage
-  YES
+  ok
   
-  ##License
-
-  MIT - Find out more about this license at: [https://choosealicense.com/licenses/MIT/](https://choosealicense.com/licenses/MIT/)
   ## Contributing
-  YES 
+  ok
   ## Tests
   <ol>
-    <li>Ok</li> 
     
   </ol>
 
   ## Questions 
+  
+ Made by: ok<br />
+ Github Profile: https://github.com/ok<br />Email: ok@ok.com
+  
