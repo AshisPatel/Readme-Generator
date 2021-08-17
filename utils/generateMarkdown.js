@@ -17,7 +17,9 @@ const renderLicenseBadge = license => {
   if (!license) {
     return "";
   }
-  return `![${license} badge from shield.io]("https://img.shields.io/badge/<license>-<${license}>-<brightgreen>")`; 
+  return `
+  <image src='../utils/images/license-${license}-green.svg'>
+  `; 
 }
 
 // TODO: Create a function that returns the license link
@@ -34,7 +36,7 @@ const renderLicenseSection = license => {
   return `
   ##License
 
-  ${license} - Find out more about this license at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)`;
+  ${license} - Find out more about this license at: [https://choosealicense.com/licenses/${license}/](https://choosealicense.com/licenses/${license}/)`;
 }
 
 // TODO: Create a function to generate markdown for README

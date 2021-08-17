@@ -62,7 +62,7 @@ const getReadmeDetails = () => {
                 type: 'checkbox',
                 name: 'license',
                 message: 'Choose a license for the project:',
-                choices: ['GNU APGLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+                choices: ['agpl-3', 'gpl-3', 'lgpl-3', 'mpl-2.0', 'apache-2.0', 'MIT', 'bsl-1.0', 'unlicense'],
                 when: ({confirmLicense}) => {
                     if (confirmLicense) {
                         return true;
