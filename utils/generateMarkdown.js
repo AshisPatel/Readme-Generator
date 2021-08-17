@@ -1,3 +1,12 @@
+// Function to generate table of contents
+const generateToc = data => {
+  return` ## Table of Contents
+  <ol>
+    <li>[Description](#description)</li>
+    <li>[Questions](#questions)</li>
+  </ol>`
+}
+
 // Function to generate list of markdown content for the installation instructions and test instructions?
 const generateInstructions = instructions => {
   // Check to see if this object is actually included
@@ -62,7 +71,7 @@ const generateMarkdown = data => {
   
   ${data.description}
 
-  ## Table of Contents
+  ${generateToc(data)}
 
   ## Installation
   <ol>
