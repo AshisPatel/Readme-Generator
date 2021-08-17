@@ -97,6 +97,8 @@ const getDetailedReadmeDetails = readmeData => {
     if (!readmeData.detailedConfirm) {
         return readmeData;
     }
+    // Initalize object 
+    //readmeData.detailed = "";
 
     return inquirer.prompt([
         {
@@ -140,7 +142,11 @@ const getDetailedReadmeDetails = readmeData => {
             }
         }
 
-    ])
+    ]).then(detailedInfo=> {
+        // Creates another 'object' to hold the prompt responses?
+        readmeData.detailed = detailedInfo; 
+        return readmeData; 
+    });
 }
 
 const promptInstallInstructions = readmeData => {
