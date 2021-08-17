@@ -143,8 +143,8 @@ const getDetailedReadmeDetails = readmeData => {
         }
 
     ]).then(detailedInfo=> {
-        // Creates another 'object' to hold the prompt responses?
-        readmeData.detailed = detailedInfo; 
+        // Merge old prompt object with detailed object info 
+        readmeData = {...readmeData, ...detailedInfo};
         return readmeData; 
     });
 }
