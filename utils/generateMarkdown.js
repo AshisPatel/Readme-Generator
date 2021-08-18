@@ -1,3 +1,9 @@
+// Function to capitlize the first letter of a word
+const capitalizeFirst = word => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+
 // Function to generate table of contents
 const generateToc = data => {
   // Check to see if the user wants a ToC
@@ -16,14 +22,14 @@ const generateToc = data => {
 
   // Generate table of contents based on included content 
   const includedTags = includedContent.map(content => {
-    return `<li><a href="#${content}">${content}</a></li>
+    return `<li><a href="#${content}">${capitalizeFirst(content)}</a></li>
     `
   }).join(""); 
 
   return `<h2>Table of Contents</h2>
  <ul>
   ${includedTags}
-  <li><a href="#questions">Questions</li>
+  <li><a href="#questions">Questions</a></li>
  </ul>`;
 }
 
