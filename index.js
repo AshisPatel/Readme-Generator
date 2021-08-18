@@ -84,87 +84,27 @@ const getBasicReadmeDetails = () => {
         },
         {
             type: 'confirm',
-            name: 'detailedConfirm',
+            name: 'optionalConfirm',
             message: 'Do you want to create a more detailed Readme, with usage, contribution, installation, test, and or license information?',
             default: false
-        }
-    ])
-}
-
-const getDetailedReadmeDetails = readmeData => {
-
-    // Check if the user wants a more detailed readme
-    if (!readmeData.detailedConfirm) {
-        return readmeData;
-    }
-    // Initalize object 
-    //readmeData.detailed = "";
-
-    return inquirer.prompt([
-        {
-            type: 'confirm',
-            name: 'confirmLicense',
-            message: 'Would you like to add a license for this project?'
-        },
-        {
-            type: 'checkbox',
-            name: 'license',
-            message: 'Choose a license for the project:',
-            choices: ['agpl-3', 'gpl-3', 'lgpl-3', 'mpl-2.0', 'apache-2.0', 'mit', 'bsl-1.0', 'unlicense'],
-            when: ({ confirmLicense }) => {
-                if (confirmLicense) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        },  
-        {   
-            type:'confirm',
-            name: 'usageConfirm',
-            message: 'Will this Readme include information on project usage?',
-            default: false
-        },
-        {
-            type: 'input',
-            name: 'usage',
-            message: 'Enter usage information for the project: '
-        },
-        {
-            type: 'confirm',
-            name: 'contributionConfirm',
-            message: 'Will this Readme include information on how to contribute to the project?',
-            default: false
-        },
-        {
-            type: 'input',
-            name: 'contribution',
-            message: 'Enter contribution guidelines: '
-        },
+        }, 
         {
             type: 'confirm',
             name: 'installInstructionsCheck',
             message: 'Will this Readme include installation instructions?',
-            default: false
+            default: false, 
+            when: ({ optionalConfirm }) => {
+                if(optionalConfirm) {
+                    return true; 
+                } else {
+                    return false; 
+                }
+            }
         },
-        {
-            type: 'confirm',
-            name: 'testInstructionsCheck',
-            message: 'Will this Readme include test instructions?',
-            default: false
-        },
-      
-      
-    
-
-    ]).then(detailedInfo=> {
-        // Merge old prompt object with detailed object info 
-        readmeData = {...readmeData, ...detailedInfo};
-        return readmeData; 
-    });
+    ])
 }
 
-const promptInstallInstructions = readmeData => {
+const getInstallInstructions = readmeData => {
     // Check if user wants to add install instructions, if not skip to next prompt 
     if (!readmeData.installInstructionsCheck) {
         return readmeData;
@@ -193,14 +133,77 @@ const promptInstallInstructions = readmeData => {
     ]).then(instructionsData => {
         readmeData.installation.push(instructionsData);
         if (instructionsData.confirmAddInstructions) {
-            return promptInstallInstructions(readmeData);
+            return getInstallInstructions(readmeData);
         } else {
             return readmeData;
         }
     })
 }
 
-const promptTestInstructions = readmeData => {
+const getOptionalDetails = readmeData => {
+
+    // Check if the user wants a more detailed readme
+    if (!readmeData.optionalConfirm) {
+        return readmeData;
+    }
+    // Initalize object 
+    //readmeData.detailed = "";
+
+    return inquirer.prompt([
+        {   
+            type:'confirm',
+            name: 'usageConfirm',
+            message: 'Will this Readme include information on project usage?',
+            default: false
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Enter usage information for the project: '
+        },
+        {
+            type: 'confirm',
+            name: 'confirmLicense',
+            message: 'Would you like to add a license for this project?'
+        },
+        {
+            type: 'checkbox',
+            name: 'license',
+            message: 'Choose a license for the project:',
+            choices: ['agpl-3', 'gpl-3', 'lgpl-3', 'mpl-2.0', 'apache-2.0', 'mit', 'bsl-1.0', 'unlicense'],
+            when: ({ confirmLicense }) => {
+                if (confirmLicense) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },  
+        {
+            type: 'confirm',
+            name: 'contributionConfirm',
+            message: 'Will this Readme include information on how to contribute to the project?',
+            default: false
+        },
+        {
+            type: 'input',
+            name: 'contribution',
+            message: 'Enter contribution guidelines: '
+        },
+        {
+            type: 'confirm',
+            name: 'testInstructionsCheck',
+            message: 'Will this Readme include test instructions?',
+            default: false
+        }
+    ]).then(optionalData=> {
+        // Merge old prompt object with detailed object info 
+        readmeData = {...readmeData, ...optionalData};
+        return readmeData; 
+    });
+}
+
+const getTestInstructions = readmeData => {
     //  Check if user wants to add test instructions
     if (!readmeData.testInstructionsCheck) {
         return readmeData;
@@ -226,7 +229,7 @@ const promptTestInstructions = readmeData => {
     ]).then(instructionsData => {
         readmeData.test.push(instructionsData);
         if (instructionsData.confirmAddInstruction) {
-            return promptTestInstructions(readmeData);
+            return getTestInstructions(readmeData);
         } else {
             return readmeData;
         }
@@ -235,10 +238,18 @@ const promptTestInstructions = readmeData => {
 
 
 //Function call to initialize app
+// getBasicReadmeDetails()
+//     .then(readmeData => getDetailedReadmeDetails(readmeData))
+//     .then(readmeData => promptInstallInstructions(readmeData))
+//     .then(readmeData => promptTestInstructions(readmeData))
+//     .then(readmeData => generateMarkdown(readmeData))
+//     .then(readmeContent => writeFile(readmeContent));
+
+
 getBasicReadmeDetails()
-    .then(readmeData => getDetailedReadmeDetails(readmeData))
-    .then(readmeData => promptInstallInstructions(readmeData))
-    .then(readmeData => promptTestInstructions(readmeData))
+    .then(readmeData => getInstallInstructions(readmeData))
+    .then(readmeData => getOptionalDetails(readmeData))
+    .then(readmeData => getTestInstructions(readmeData))
     .then(readmeData => generateMarkdown(readmeData))
-    .then(readmeContent => writeFile(readmeContent));
+    .then(readmeContent => writeFile(readmeContent)); 
 

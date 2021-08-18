@@ -8,7 +8,7 @@ const generateToc = data => {
   const optionalContent = Object.keys(data);
   // Initialize an array of conditions that we will use to filter through our optional content
   // Make sure keywords are in the order in which they'd appear in the table of contents
-  const keyWords = ['installation', 'usage', 'license', 'contribution', 'test'];
+  const keyWords = ['installation', 'usage', 'license', 'contribution', 'tests'];
   // Filter through array and store items that are in keywords 
   const includedContent = optionalContent.filter(content => {
     return keyWords.includes(content); 
@@ -58,7 +58,7 @@ const generateTestInstructions = instructions => {
     `;
   }).join('');
 
-  return `<h2 id="test">Tests</h2>
+  return `<h2 id="tests">Tests</h2>
   <ol>
     ${instructionSteps}
   </ol>
@@ -148,7 +148,7 @@ const generateMarkdown = data => {
 
   ${generateContributing(data.contribution)}
   
-  ${generateTestInstructions(data.test)}
+  ${generateTestInstructions(data.tests)}
 
 
   <h2 id="questions">Questions</h2>
