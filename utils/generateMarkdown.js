@@ -24,8 +24,7 @@ const generateToc = data => {
  <ul>
   ${includedTags}
   <li><a href="#questions">Questions</li>
- </ul>
- `;
+ </ul>`;
 }
 
 // Function to generate list of markdown content for the installation instructions and test instructions?
@@ -153,7 +152,7 @@ const generateMarkdown = data => {
 
   <h2 id="questions">Questions</h2>
   ${generateContact(data.github, data.email, data.contact)}
-  `;
+  `; 
 }
 // for why generateContact does generateContact({github, email}) not work?
 module.exports = generateMarkdown;

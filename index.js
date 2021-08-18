@@ -159,7 +159,14 @@ const getOptionalDetails = readmeData => {
         {
             type: 'input',
             name: 'usage',
-            message: 'Enter usage information for the project: '
+            message: 'Enter usage information for the project: ',
+            when: ({usageConfirm}) => {
+                if(usageConfirm) {
+                    return true; 
+                } else {
+                    return false; 
+                }
+            }
         },
         {
             type: 'confirm',
@@ -188,7 +195,14 @@ const getOptionalDetails = readmeData => {
         {
             type: 'input',
             name: 'contribution',
-            message: 'Enter contribution guidelines: '
+            message: 'Enter contribution guidelines: ',
+            when: ({contributionConfirm}) => {
+                if(contributionConfirm) {
+                    return true; 
+                } else {
+                    return false; 
+                }
+            }
         },
         {
             type: 'confirm',
@@ -210,8 +224,8 @@ const getTestInstructions = readmeData => {
     }
 
     // Create an array to hold test instructions 
-    if (!readmeData.test) {
-        readmeData.test = [];
+    if (!readmeData.tests) {
+        readmeData.tests = [];
     }
 
     return inquirer.prompt([
@@ -238,14 +252,6 @@ const getTestInstructions = readmeData => {
 
 
 //Function call to initialize app
-// getBasicReadmeDetails()
-//     .then(readmeData => getDetailedReadmeDetails(readmeData))
-//     .then(readmeData => promptInstallInstructions(readmeData))
-//     .then(readmeData => promptTestInstructions(readmeData))
-//     .then(readmeData => generateMarkdown(readmeData))
-//     .then(readmeContent => writeFile(readmeContent));
-
-
 getBasicReadmeDetails()
     .then(readmeData => getInstallInstructions(readmeData))
     .then(readmeData => getOptionalDetails(readmeData))
