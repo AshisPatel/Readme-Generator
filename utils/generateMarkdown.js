@@ -8,17 +8,62 @@ const generateToc = data => {
 }
 
 // Function to generate list of markdown content for the installation instructions and test instructions?
-const generateInstructions = instructions => {
+const generateInstallInstructions = instructions => {
   // Check to see if this object is actually included
   if (!instructions) {
     // Return nothing if there is nothing included
     return "";
   }
-  return instructions.map(({ instruction }) => {
+  const instructionSteps =  instructions.map(({ instruction }) => {
     return `<li>${instruction}</li> 
     `;
   }).join('');
+
+  return `<h2 id="installation">Installation</h2>
+  <ol>
+    ${instructionSteps}
+  </ol>
+  `;
 };
+
+const generateTestInstructions = instructions => {
+  // Check to see if this object is actually included
+  if (!instructions) {
+    // Return nothing if there is nothing included
+    return "";
+  }
+  const instructionSteps =  instructions.map(({ instruction }) => {
+    return `<li>${instruction}</li> 
+    `;
+  }).join('');
+
+  return `<h2 id="tests">Tests</h2>
+  <ol>
+    ${instructionSteps}
+  </ol>
+  `;
+};
+
+const generateUsage = usage => {
+  if (usage === "") {
+    return; 
+  }
+
+  return `<h2 id="usage">Usage</h2>
+  ${usage}
+  `;
+}
+
+const generateContributing = contribution => {
+  if (contribution === "") {
+    return; 
+  }
+
+  return `<h2 id="contribution">Contribution</h2>
+  ${contribution}
+  `;
+}
+
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -43,7 +88,7 @@ const renderLicenseSection = license => {
     return "";
   }
   return `
-  ##License
+  <h2 id="license">License</h2>
 
   ${license} - Find out more about this license at: [https://choosealicense.com/licenses/${license}/](https://choosealicense.com/licenses/${license}/)`;
 }
@@ -67,28 +112,24 @@ const generateMarkdown = data => {
   console.log(data);
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
-  ## Description
+  <h2 id="description">Description</h2>
   
   ${data.description}
 
   ${generateToc(data)}
 
-  ## Installation
-  <ol>
-    ${generateInstructions(data.install)}
-  </ol>
+  ${generateInstallInstructions(data.installation)}
 
-  ## Usage
-  ${data.usage}
+  ${generateUsage(data.usage)}
+ 
   ${renderLicenseSection(data.license)}
-  ## Contributing
-  ${data.contributions}
-  ## Tests
-  <ol>
-    ${generateInstructions(data.test)}
-  </ol>
 
-  ## Questions 
+  ${generateContributing(data.contributions)}
+  
+  ${generateTestInstructions(data.test)}
+
+
+  <h2 id="questions">Questions</h2>
   ${generateContact(data.github, data.email, data.contact)}
   
 `;

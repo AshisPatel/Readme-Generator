@@ -155,8 +155,8 @@ const promptInstallInstructions = readmeData => {
         return readmeData;
     }
     // Create an array to hold install instructions 
-    if (!readmeData.install) {
-        readmeData.install = [];
+    if (!readmeData.installation) {
+        readmeData.installation = [];
     }
     // Print array of current steps, if the array is not empty
     //  if(readmeData.install.length != 0 ) {
@@ -176,7 +176,7 @@ const promptInstallInstructions = readmeData => {
             default: false
         }
     ]).then(instructionsData => {
-        readmeData.install.push(instructionsData);
+        readmeData.installation.push(instructionsData);
         if (instructionsData.confirmAddInstructions) {
             return promptInstallInstructions(readmeData);
         } else {
