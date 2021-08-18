@@ -3,8 +3,20 @@ const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const writeFile = require('./utils/writeFile.js');
 
+// Variables for fun
+let funDisplay1 = true;
+let funDisplay2 = true;
+
 // TODO: Create a function to initialize app
 const getBasicReadmeDetails = () => {
+
+    console.log(`
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║              ╔═════════════════════════════════════════╗              ║                                         
+    ║      (>'~')>-║ Welcome to the "Best" Readme Generator! ║-<('~'<)      ║
+    ║              ╚═════════════════════════════════════════╝              ║                                       
+    ╚═══════════════════════════════════════════════════════════════════════╝
+    `);
     return inquirer.prompt([
         {
             type: 'input',
@@ -87,17 +99,17 @@ const getBasicReadmeDetails = () => {
             name: 'optionalConfirm',
             message: 'Do you want to create a more detailed Readme, with usage, contribution, installation, test, and or license information?',
             default: false
-        }, 
+        },
         {
             type: 'confirm',
             name: 'installInstructionsCheck',
             message: 'Will this Readme include installation instructions?',
-            default: false, 
+            default: false,
             when: ({ optionalConfirm }) => {
-                if(optionalConfirm) {
-                    return true; 
+                if (optionalConfirm) {
+                    return true;
                 } else {
-                    return false; 
+                    return false;
                 }
             }
         },
@@ -117,7 +129,17 @@ const getInstallInstructions = readmeData => {
     //  if(readmeData.install.length != 0 ) {
     //     console.log(`Current Instructions: ${readmeData.install}`);
     //  }
+    if (funDisplay1) {
+        console.log(`
+    ╔═══════════════════════════════════════════════════════════════════════════════════════════╗
+    ║              ╔═════════════════════════════════════════════════════════════╗              ║                                         
+    ║      (>'~')>-║ You are about to be prompted for installation instructions! ║-<('~'<)      ║
+    ║              ╚═════════════════════════════════════════════════════════════╝              ║                                       
+    ╚═══════════════════════════════════════════════════════════════════════════════════════════╝
+        `);
 
+        funDisplay1 = false;
+    }
     return inquirer.prompt([
         {
             type: 'input',
@@ -148,10 +170,17 @@ const getOptionalDetails = readmeData => {
     }
     // Initalize object 
     //readmeData.detailed = "";
+    console.log(`
+    ╔══════════════════════════════════════════════════════════════════════════════════╗
+    ║              ╔════════════════════════════════════════════════════╗              ║                                         
+    ║      (>'~')>-║These prompts are optional, they can be left blank! ║-<('~'<)      ║
+    ║              ╚════════════════════════════════════════════════════╝              ║                                       
+    ╚══════════════════════════════════════════════════════════════════════════════════╝
+    `);
 
     return inquirer.prompt([
-        {   
-            type:'confirm',
+        {
+            type: 'confirm',
             name: 'usageConfirm',
             message: 'Will this Readme include information on project usage?',
             default: false
@@ -160,11 +189,11 @@ const getOptionalDetails = readmeData => {
             type: 'input',
             name: 'usage',
             message: 'Enter usage information for the project: ',
-            when: ({usageConfirm}) => {
-                if(usageConfirm) {
-                    return true; 
+            when: ({ usageConfirm }) => {
+                if (usageConfirm) {
+                    return true;
                 } else {
-                    return false; 
+                    return false;
                 }
             }
         },
@@ -185,7 +214,7 @@ const getOptionalDetails = readmeData => {
                     return false;
                 }
             }
-        },  
+        },
         {
             type: 'confirm',
             name: 'contributionConfirm',
@@ -196,11 +225,11 @@ const getOptionalDetails = readmeData => {
             type: 'input',
             name: 'contribution',
             message: 'Enter contribution guidelines: ',
-            when: ({contributionConfirm}) => {
-                if(contributionConfirm) {
-                    return true; 
+            when: ({ contributionConfirm }) => {
+                if (contributionConfirm) {
+                    return true;
                 } else {
-                    return false; 
+                    return false;
                 }
             }
         },
@@ -210,10 +239,10 @@ const getOptionalDetails = readmeData => {
             message: 'Will this Readme include test instructions?',
             default: false
         }
-    ]).then(optionalData=> {
+    ]).then(optionalData => {
         // Merge old prompt object with detailed object info 
-        readmeData = {...readmeData, ...optionalData};
-        return readmeData; 
+        readmeData = { ...readmeData, ...optionalData };
+        return readmeData;
     });
 }
 
@@ -226,6 +255,17 @@ const getTestInstructions = readmeData => {
     // Create an array to hold test instructions 
     if (!readmeData.tests) {
         readmeData.tests = [];
+    }
+
+    if (funDisplay2) {
+        console.log(`
+    ╔═══════════════════════════════════════════════════════════════════════════════════╗
+    ║              ╔═════════════════════════════════════════════════════╗              ║                                         
+    ║      (>'~')>-║ You are about to be prompted for test instructions! ║-<('~'<)      ║
+    ║              ╚═════════════════════════════════════════════════════╝              ║                                       
+    ╚═══════════════════════════════════════════════════════════════════════════════════╝
+        `);
+        funDisplay2 = false;
     }
 
     return inquirer.prompt([
@@ -241,7 +281,7 @@ const getTestInstructions = readmeData => {
             default: false
         }
     ]).then(instructionsData => {
-        readmeData.test.push(instructionsData);
+        readmeData.tests.push(instructionsData);
         if (instructionsData.confirmAddInstruction) {
             return getTestInstructions(readmeData);
         } else {
@@ -257,5 +297,5 @@ getBasicReadmeDetails()
     .then(readmeData => getOptionalDetails(readmeData))
     .then(readmeData => getTestInstructions(readmeData))
     .then(readmeData => generateMarkdown(readmeData))
-    .then(readmeContent => writeFile(readmeContent)); 
+    .then(readmeContent => writeFile(readmeContent));
 
