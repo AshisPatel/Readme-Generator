@@ -110,7 +110,7 @@ const renderLicenseSection = license => {
   return `
   <h2 id="license">License</h2>
 
-  ${license} - Find out more about this license at: [https://choosealicense.com/licenses/${license}/](https://choosealicense.com/licenses/${license}/)`;
+  ${license} - Find out more about this license at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)`;
 }
 
 const generateContact = (github, email, contact) => {

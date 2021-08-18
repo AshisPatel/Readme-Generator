@@ -177,7 +177,7 @@ const getOptionalDetails = readmeData => {
             type: 'checkbox',
             name: 'license',
             message: 'Choose a license for the project:',
-            choices: ['agpl-3', 'gpl-3', 'lgpl-3', 'mpl-2.0', 'apache-2.0', 'mit', 'bsl-1.0', 'unlicense'],
+            choices: ['AGPLv3', 'GPLv3', 'LGPLv3', 'MPL2.0', 'Apache2.0', 'MIT', 'BSL1.0', 'Unlicense'],
             when: ({ confirmLicense }) => {
                 if (confirmLicense) {
                     return true;
