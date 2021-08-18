@@ -140,6 +140,7 @@ const getInstallInstructions = readmeData => {
 
         funDisplay1 = false;
     }
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -155,6 +156,15 @@ const getInstallInstructions = readmeData => {
     ]).then(instructionsData => {
         readmeData.installation.push(instructionsData);
         if (instructionsData.confirmAddInstructions) {
+            console.log(`
+              v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v  
+            ╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+             Instructions so far: 
+             ${readmeData.installation.map(step => step.instruction)}                                                                                                                                                              
+            ╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+              ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^  
+            
+           `);
             return getInstallInstructions(readmeData);
         } else {
             return readmeData;
@@ -171,11 +181,11 @@ const getOptionalDetails = readmeData => {
     // Initalize object 
     //readmeData.detailed = "";
     console.log(`
-    ╔══════════════════════════════════════════════════════════════════════════════════╗
-    ║              ╔════════════════════════════════════════════════════╗              ║                                         
-    ║      (>'~')>-║These prompts are optional, they can be left blank! ║-<('~'<)      ║
-    ║              ╚════════════════════════════════════════════════════╝              ║                                       
-    ╚══════════════════════════════════════════════════════════════════════════════════╝
+    ╔══════════════════════════════════════════════════════════════════════════════════════════════════╗
+    ║              ╔════════════════════════════════════════════════════════════════════╗              ║                                         
+    ║      (>'~')>-║These prompts are optional, but including a license is recommended! ║-<('~'<)      ║
+    ║              ╚════════════════════════════════════════════════════════════════════╝              ║                                       
+    ╚══════════════════════════════════════════════════════════════════════════════════════════════════╝
     `);
 
     return inquirer.prompt([
@@ -267,7 +277,6 @@ const getTestInstructions = readmeData => {
         `);
         funDisplay2 = false;
     }
-
     return inquirer.prompt([
         {
             type: 'input',
@@ -283,6 +292,15 @@ const getTestInstructions = readmeData => {
     ]).then(instructionsData => {
         readmeData.tests.push(instructionsData);
         if (instructionsData.confirmAddInstruction) {
+            console.log(`
+            v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v   v('~')v  
+          ╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+           Instructions so far: 
+           ${readmeData.tests.map(step => step.instruction)}                                                                                                                                                              
+          ╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+            ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^   ^(,~,)^  
+          
+         `);
             return getTestInstructions(readmeData);
         } else {
             return readmeData;
