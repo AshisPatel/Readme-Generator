@@ -102,28 +102,6 @@ const getDetailedReadmeDetails = readmeData => {
 
     return inquirer.prompt([
         {
-            type: 'input',
-            name: 'usage',
-            message: 'Enter usage information for the project: '
-        },
-        {
-            type: 'input',
-            name: 'contributions',
-            message: 'Enter contribution guidelines: '
-        },
-        {
-            type: 'confirm',
-            name: 'installInstructionsCheck',
-            message: 'Will this Readme include installation instructions?',
-            default: false
-        },
-        {
-            type: 'confirm',
-            name: 'testInstructionsCheck',
-            message: 'Will this Readme include test instructions?',
-            default: false
-        },
-        {
             type: 'confirm',
             name: 'confirmLicense',
             message: 'Would you like to add a license for this project?'
@@ -140,7 +118,44 @@ const getDetailedReadmeDetails = readmeData => {
                     return false;
                 }
             }
-        }
+        },  
+        {   
+            type:'confirm',
+            name: 'usageConfirm',
+            message: 'Will this Readme include information on project usage?',
+            default: false
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Enter usage information for the project: '
+        },
+        {
+            type: 'confirm',
+            name: 'contributionConfirm',
+            message: 'Will this Readme include information on how to contribute to the project?',
+            default: false
+        },
+        {
+            type: 'input',
+            name: 'contribution',
+            message: 'Enter contribution guidelines: '
+        },
+        {
+            type: 'confirm',
+            name: 'installInstructionsCheck',
+            message: 'Will this Readme include installation instructions?',
+            default: false
+        },
+        {
+            type: 'confirm',
+            name: 'testInstructionsCheck',
+            message: 'Will this Readme include test instructions?',
+            default: false
+        },
+      
+      
+    
 
     ]).then(detailedInfo=> {
         // Merge old prompt object with detailed object info 
@@ -219,7 +234,7 @@ const promptTestInstructions = readmeData => {
 }
 
 
-// Function call to initialize app
+//Function call to initialize app
 getBasicReadmeDetails()
     .then(readmeData => getDetailedReadmeDetails(readmeData))
     .then(readmeData => promptInstallInstructions(readmeData))

@@ -1,10 +1,31 @@
 // Function to generate table of contents
 const generateToc = data => {
-  return` ## Table of Contents
-  <ol>
-    <li>[Description](#description)</li>
-    <li>[Questions](#questions)</li>
-  </ol>`
+  // Check to see if the user wants a ToC
+  if(!data.tocCheck) {
+    return ""; 
+  }
+  // Grab all keys in the data object as an array
+  const optionalContent = Object.keys(data);
+  // Initialize an array of conditions that we will use to filter through our optional content
+  // Make sure keywords are in the order in which they'd appear in the table of contents
+  const keyWords = ['installation', 'usage', 'license', 'contribution', 'test'];
+  // Filter through array and store items that are in keywords 
+  const includedContent = optionalContent.filter(content => {
+    return keyWords.includes(content); 
+  })
+
+  // Generate table of contents based on included content 
+  const includedTags = includedContent.map(content => {
+    return `<li><a href="#${content}">${content}</a></li>
+    `
+  }).join(""); 
+
+  return `<h2>Table of Contents</h2>
+ <ul>
+  ${includedTags}
+  <li><a href="#questions">Questions</li>
+ </ul>
+ `;
 }
 
 // Function to generate list of markdown content for the installation instructions and test instructions?
@@ -14,7 +35,7 @@ const generateInstallInstructions = instructions => {
     // Return nothing if there is nothing included
     return "";
   }
-  const instructionSteps =  instructions.map(({ instruction }) => {
+  const instructionSteps = instructions.map(({ instruction }) => {
     return `<li>${instruction}</li> 
     `;
   }).join('');
@@ -32,12 +53,12 @@ const generateTestInstructions = instructions => {
     // Return nothing if there is nothing included
     return "";
   }
-  const instructionSteps =  instructions.map(({ instruction }) => {
+  const instructionSteps = instructions.map(({ instruction }) => {
     return `<li>${instruction}</li> 
     `;
   }).join('');
 
-  return `<h2 id="tests">Tests</h2>
+  return `<h2 id="test">Tests</h2>
   <ol>
     ${instructionSteps}
   </ol>
@@ -45,22 +66,22 @@ const generateTestInstructions = instructions => {
 };
 
 const generateUsage = usage => {
-  if (usage === "") {
-    return; 
+  if (!usage) {
+    return "";
   }
 
   return `<h2 id="usage">Usage</h2>
-  ${usage}
+  <p>${usage}</p>
   `;
 }
 
 const generateContributing = contribution => {
-  if (contribution === "") {
-    return; 
+  if (!contribution) {
+    return "";
   }
 
   return `<h2 id="contribution">Contribution</h2>
-  ${contribution}
+  <p>${contribution}</p>
   `;
 }
 
@@ -95,24 +116,25 @@ const renderLicenseSection = license => {
 
 const generateContact = (github, email, contact) => {
   let contactInfo = `
+  <p> 
   Made by: ${github}<br />
-  Github Profile: https://github.com/${github}<br />`;
+  Github Profile: https://github.com/${github}<br />
+  </p>`;
 
   if (email) {
     contactInfo = contactInfo + `Email: ${email}<br />`;
   }
 
-  contactInfo = contactInfo + `${contact}`; 
+  contactInfo = contactInfo + `${contact}`;
 
   return contactInfo;
 }
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = data => {
-  console.log(data);
-  return `# ${data.title}
+  return `<h1>${data.title}</h1>
   ${renderLicenseBadge(data.license)}
-  <h2 id="description">Description</h2>
+  <h2>Description</h2>
   
   ${data.description}
 
@@ -124,15 +146,14 @@ const generateMarkdown = data => {
  
   ${renderLicenseSection(data.license)}
 
-  ${generateContributing(data.contributions)}
+  ${generateContributing(data.contribution)}
   
   ${generateTestInstructions(data.test)}
 
 
   <h2 id="questions">Questions</h2>
   ${generateContact(data.github, data.email, data.contact)}
-  
-`;
+  `;
 }
 // for why generateContact does generateContact({github, email}) not work?
 module.exports = generateMarkdown;
