@@ -53,7 +53,7 @@
 
   <h2>End Note - Thank you to the Reader</h2>
 
-  Thank you for taking the time to visit my application and read through the README! This readme (aside from this section, which I can hopefully add on to the application!) was actually generated using the Readme Generator application! This project introduced a TON of convienant Javascript ES6 features and helped me get a better handle on how async functions work in node. Additionally, I learned that HTML can be used in readmes for github?! This has made it so much easier to include gifs in these! Please enjoy the fun fact and gif from my random collection of things that make me laugh!
+  Thank you for taking the time to visit my application and read through the README! This readme (aside from this section, which I can hopefully add on to the application!) was actually generated using the Readme Generator application! This project introduced a TON of convienant Javascript ES6 features and helped me get a better handle on how async functions work in node. As a side note, the 5 minute limit on the free version of screencastify made the usage video BRUTAL for me. If it needs to be re-uploaded with me talking slower, please reach out to me! Finally, please enjoy the fun fact and gif from my random collection of things that make me laugh! Hopefully they brighten up your day and or provide you with something fun to show a friend. 
 
   **Fun Fact:** The longest word consits of 189,819 letters! It is the full name of 'titin' which is a giant protein. Don't believe me? Maybe you believe Wikipedia! I know I sure do, here's the link: <a href="https://en.wikipedia.org/wiki/Longest_word_in_English">https://en.wikipedia.org/wiki/Longest_word_in_English</a><br />
 
