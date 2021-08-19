@@ -97,9 +97,12 @@ const renderLicenseBadge = license => {
   if (!license) {
     return "";
   }
-  return `
-  <image src='https://img.shields.io/badge/license-${license}-green.svg' />
-  `;
+
+  const badgeList = license.map(lic => {
+    return  `<image src='https://img.shields.io/badge/license-${lic}-green.svg' />`
+  }).join(' ');
+
+  return badgeList; 
 }
 
 // TODO: Create a function that returns the license link
@@ -113,10 +116,15 @@ const renderLicenseSection = license => {
   if (!license) {
     return "";
   }
+
+  const licensesList = license.map(lic => {
+    return `${lic}`
+  }).join(' | '); 
+
   return `
   <h2 id="license">License</h2>
 
-  ${license} - Find out more about this license at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)`;
+  ${licensesList} - Find out more about this project's license(s) at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)`;
 }
 
 const generateContact = (github, email, contact) => {
@@ -137,6 +145,7 @@ const generateContact = (github, email, contact) => {
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = data => {
+  const {github, email, contact} = data; 
   return `<h1>${data.title}</h1>
   ${renderLicenseBadge(data.license)}
   <h2>Description</h2>
@@ -155,9 +164,8 @@ const generateMarkdown = data => {
   
   ${generateTestInstructions(data.tests)}
 
-
   <h2 id="questions">Questions</h2>
-  ${generateContact(data.github, data.email, data.contact)}
+  ${generateContact(github, email, contact)}
   `; 
 }
 // for why generateContact does generateContact({github, email}) not work?

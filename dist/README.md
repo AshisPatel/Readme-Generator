@@ -1,43 +1,28 @@
 <h1>ok</h1>
-  
+  <image src='https://img.shields.io/badge/license-AGPLv3-green.svg' /> <image src='https://img.shields.io/badge/license-GPLv3-green.svg' /> <image src='https://img.shields.io/badge/license-LGPLv3-green.svg' />
   <h2>Description</h2>
   
   ok
 
   
 
-  <h2 id="installation">Installation</h2>
-  <ol>
-    <li>YESSIR</li> 
-    <li>Nice</li> 
-    <li>This is good</li> 
-    <li>n</li> 
-    
-  </ol>
   
 
-  <h2 id="usage">Usage</h2>
-  <p>ok</p>
   
  
   
+  <h2 id="license">License</h2>
 
-  <h2 id="contribution">Contribution</h2>
-  <p>ok</p>
-  
-  
-  <h2 id="tests">Tests</h2>
-  <ol>
-    <li>ok</li> 
-    
-  </ol>
-  
+  AGPLv3 | GPLv3 | LGPLv3 - Find out more about this license at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)
 
+  
+  
+  
 
   <h2 id="questions">Questions</h2>
   
   <p> 
-  Made by: This is a test<br />
-  Github Profile: https://github.com/This is a test<br />
+  Made by: ok<br />
+  Github Profile: https://github.com/ok<br />
   </p>ok
   
