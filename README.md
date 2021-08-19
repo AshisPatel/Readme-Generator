@@ -47,4 +47,13 @@
   Made by: AshisPatel<br />
   Github Profile: https://github.com/AshisPatel<br />
   </p>Email: ashis.n.patel@gmail.com<br />If you would like to contact me, please send me an email. 
+
+  <h2>End Note - Thank you to the Reader</h2>
+
+  Thank you for taking the time to visit my application and read through the README! This readme (aside from this section, which I can hopefully add on to the application!) was actually generated using the Readme Generator application! This project introduced a TON of convienant Javascript ES6 features and helped me get a better handle on how async functions work in node. Additionally, I learned that HTML can be used in readmes for github?! This has made it so much easier to include gifs in these! Please enjoy the fun fact and gif from my random collection of things that make me laugh!
+
+  **Fun Fact:** The longest word consits of 189,819 letters! It is the full name of 'titin' which is a giant protein. Don't believe me? Maybe you believe Wikipedia! I know I sure do, here's the link: <a href="https://en.wikipedia.org/wiki/Longest_word_in_English">https://en.wikipedia.org/wiki/Longest_word_in_English</a><br />
+
+  _No potatoes were harmed in the making of this gif_
+  <div><img src="https://c.tenor.com/r2NG3OuR7c8AAAAd/anime-vegetables.gif" alt="Animated potato peels himself and falls into a pot"/></div>
   
