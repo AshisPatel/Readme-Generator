@@ -54,6 +54,8 @@
 
   **Fun Fact:** The longest word consits of 189,819 letters! It is the full name of 'titin' which is a giant protein. Don't believe me? Maybe you believe Wikipedia! I know I sure do, here's the link: <a href="https://en.wikipedia.org/wiki/Longest_word_in_English">https://en.wikipedia.org/wiki/Longest_word_in_English</a><br />
 
-  _No potatoes were harmed in the making of this gif_
+
   ![Animated potato peels themselves and falls into a pot](https://github.com/AshisPatel/Readme-Generator-Week-9-Challenge/blob/main/assets/videos/potato.gif)
+
+   _No potatoes were harmed in the making of this gif_
   
