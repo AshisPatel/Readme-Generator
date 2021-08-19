@@ -2,7 +2,7 @@
   <image src='https://img.shields.io/badge/license-MIT-green.svg' />
   <h2>Description</h2>
   
-  The Readme Generator is a CLI application that utilizes the Inquirer package to recieve user prompts and then generate a markdown file. The markdown file can be a basic file and only include the project name, project descritpion, and the creator's Github info. Alternatively, the markdown file can include optional sections such as: installation, usage, license, contribution, and tests. 
+  The Readme Generator is a CLI application that utilizes the Inquirer package to receive user prompts and then generate a markdown file. The markdown file can be a basic file and only include the project name, project description, and the creator's Github info. Alternatively, the markdown file can include optional sections such as: installation, usage, license, contribution, and tests. Functionality wise, the user is prompted multiple questions using the Inquirer package. This is done through several async functions that all deliver an object to the next function to continue accumulating prompt data. This prompt data is then passed over to a generateMarkdown function that comes from a script in the utils directory. The generateMarkdown function makes multiple calls to other functions to generate each the various sections of the readme. Once the readme markdown file is generated, it is then passed to the writeFile function which uses the 'fs' package that is included in node's core library. The fs package will 'write' the markdown file and save it in the dist directory, where it can be accessed by the user and added to their project repo. 
 
   <h2>Table of Contents</h2>
  <ul>
