@@ -33,7 +33,6 @@ const generateToc = data => {
  </ul>`;
 }
 
-// Function to generate list of markdown content for the installation instructions and test instructions?
 const generateInstallInstructions = instructions => {
   // Check to see if this object is actually included
   if (!instructions) {
