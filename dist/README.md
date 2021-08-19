@@ -1,44 +1,45 @@
 <h1>Readme Generator</h1>
-  <image src='https://img.shields.io/badge/license-MIT-green.svg' />
+  <image src='https://img.shields.io/badge/license-Apache2.0-green.svg' /> <image src='https://img.shields.io/badge/license-MIT-green.svg' />
   <h2>Description</h2>
   
-  The Readme Generator is a CLI application that utilizes the Inquirer package to recieve user prompts and then generate a markdown file. The markdown file can be a basic file and only include the project name, project descritpion, and the creator's Github info. Alternatively, the markdown file can include optional sections such as: installation, usage, license, contribution, and tests. 
+  This app generates really cool readmes! Awesome ones even.
 
   <h2>Table of Contents</h2>
  <ul>
   <li><a href="#installation">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contribution">Contribution</a></li>
+    <li><a href="#tests">Tests</a></li>
     
   <li><a href="#questions">Questions</a></li>
  </ul>
 
   <h2 id="installation">Installation</h2>
   <ol>
-    <li>Install node.js for your operating system. </li> 
-    <li>Ensure that the 'node' command can be ran in the terminal by fixing the PATH if you are on Windows. </li> 
-    <li>Clone or download the contents of this project's repo onto your local machine.</li> 
-    <li>Navigate to the copied files through the terminal.</li> 
-    <li>Run 'npm -init' in the terminal to download the required dependencies.</li> 
-    <li>Congratulations! You can run the Readme Generator now. </li> 
+    <li>Download stuff</li> 
+    <li>install stuff!</li> 
+    <li>Run stuff!</li> 
     
   </ol>
   
 
   <h2 id="usage">Usage</h2>
-  <p>After installing the project, execute the following line in your terminal: 'node index.js'. This will begin the prompt sequence in your terminal. Go through the prompts and once done, 'README.md' file will be created in the 'dist' directory. </p>
+  <p>Thats what this video is for! </p>
   
  
   
   <h2 id="license">License</h2>
 
-  MIT - Find out more about this project's license(s) at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)
+  Apache2.0 | MIT - Find out more about this project's license(s) at: [https://choosealicense.com/licenses/](https://choosealicense.com/licenses/)
 
-  <h2 id="contribution">Contribution</h2>
-  <p>Send me an email (my email can be found in the 'Questions' section) about any bugs that you find or features that you think should be included in the Readme Generator! I would be more than happy to open the project up and create any branches for contributions. </p>
   
   
+  <h2 id="tests">Tests</h2>
+  <ol>
+    <li>Test your things</li> 
+    <li>Test your things again!</li> 
+    
+  </ol>
   
 
   <h2 id="questions">Questions</h2>
@@ -46,5 +47,5 @@
   <p> 
   Made by: AshisPatel<br />
   Github Profile: https://github.com/AshisPatel<br />
-  </p>Email: ashis.n.patel@gmail.com<br />If you would like to contact me, please send me an email. 
+  </p>Email: ashis.n.patel@gmail.com<br />
   

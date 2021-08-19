@@ -28,6 +28,9 @@
 
   <h2 id="usage">Usage</h2>
   <p>After installing the project, execute the following line in your terminal: 'node index.js'. This will begin the prompt sequence in your terminal. Go through the prompts and once done, 'README.md' file will be created in the 'dist' directory. </p>
+
+  If you would like more usage instructions, please click on the following link to view my walkthrough video of the application: 
+  [Readme Generator Walkthrough Video](https://drive.google.com/file/d/1ranfNy659v4C9Js7WjO5StcCnYzxoakQ/view) 
   
  
   
