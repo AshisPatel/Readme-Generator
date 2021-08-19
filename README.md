@@ -20,7 +20,7 @@
     <li>Ensure that the 'node' command can be ran in the terminal by fixing the PATH if you are on Windows. </li> 
     <li>Clone or download the contents of this project's repo onto your local machine.</li> 
     <li>Navigate to the copied files through the terminal.</li> 
-    <li>Run 'npm -init' in the terminal to download the required dependencies.</li> 
+    <li>Run 'npm init' in the terminal to download the required dependencies.</li> 
     <li>Congratulations! You can run the Readme Generator now. </li> 
     
   </ol>
